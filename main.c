@@ -6,7 +6,7 @@
 /*   By: jchichep <jchichep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 13:07:21 by jchichep          #+#    #+#             */
-/*   Updated: 2014/11/07 18:18:52 by jchichep         ###   ########.fr       */
+/*   Updated: 2014/11/07 18:43:39 by jchichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,34 +161,37 @@ int main()
 	}
 	if (FT_ATOI == true)
 	{
-		if (atoi("0") == ft_atoi("0"))
+		int nb1;
+		int nb2;
+
+		if ((nb1 = atoi("0")) == (nb2 = ft_atoi("0")))
 			printf("ft_atoi [TEST = \"0\"] :  \033[32m\t\t Correcte\033[0m\n");
 		else
-			printf("ft_atoi [TEST = \"0\"] :  \033[31m\t\t Wrong\033[0m\n");
-		if (atoi("-2147483648") == ft_atoi("-2147483648"))
+			printf("ft_atoi [TEST = \"0\"] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+		if ((nb1 = atoi("-2147483648")) == (nb2 = ft_atoi("-2147483648")))
 			printf("ft_atoi [TEST = \"-2147483648\"] :  \033[32m\t Correcte\033[0m\n");
 		else
-			printf("ft_atoi [TEST = \"-2147483648\"] :  \033[31m\t Wrong\033[0m\n");
-		if (atoi("2147483647") == ft_atoi("2147483647"))
+			printf("ft_atoi [TEST = \"-2147483648\"] :  \033[31m\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+		if ((nb1 = atoi("2147483647")) == (nb2 = ft_atoi("2147483647")))
 			printf("ft_atoi [TEST = \"2147483647\"] :  \033[32m\t Correcte\033[0m\n");
 		else
-			printf("ft_atoi [TEST = \"2147483647\"] :  \033[31m\t Wrong\033[0m\n");
-		if (atoi("  42") == ft_atoi("  42"))
+			printf("ft_atoi [TEST = \"2147483647\"] :  \033[31m\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+		if ((nb1 = atoi("  42")) == (nb2 = ft_atoi("  42")))
 			printf("ft_atoi [TEST = \"  42\"] :  \033[32m\t\t Correcte\033[0m\n");
 		else
-			printf("ft_atoi [TEST = \"  42\"] :  \033[31m\t\t Wrong\033[0m\n");
-		if (atoi("\t \t \t -42") == ft_atoi("\t \t \t -42"))
+			printf("ft_atoi [TEST = \"  42\"] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+		if ((nb1 = atoi("\t \t \t -42")) == (nb2 = ft_atoi("\t \t \t -42")))
 			printf("ft_atoi [TEST = \"\\t \\t \\t -42\"] :  \033[32m\t Correcte\033[0m\n");
 		else
-			printf("ft_atoi [TEST = \"\\t \\t \\t -42\"] :  \033[31m\t Wrong\033[0m\n");
-		if (atoi("42papa58") == ft_atoi("42papa58"))
+			printf("ft_atoi [TEST = \"\\t \\t \\t -42\"] :  \033[31m\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+		if ((nb1 = atoi("42papa58")) == (nb2 = ft_atoi("42papa58")))
 			printf("ft_atoi [TEST = \"42papa58\"] :  \033[32m\t\t Correcte\033[0m\n");
 		else
-			printf("ft_atoi [TEST = \"42papa58\"] :  \033[31m\t\t Wrong\033[0m\n");
-		if (atoi("\t \t \t -42papa58") == ft_atoi("\t \t \t -42papa58"))
+			printf("ft_atoi [TEST = \"42papa58\"] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+		if ((nb1 = atoi("\t \t \t -42papa58")) == (nb2 = ft_atoi("\t \t \t -42papa58")))
 			printf("ft_atoi [TEST = \"\\t \\t \\t -42papa58\"] : \033[32m Correcte\033[0m\n");
 		else
-			printf("ft_atoi [TEST = \"\\t \\t \\t -42papa58\"] : \033[31m Wrong\033[0m\n");
+			printf("ft_atoi [TEST = \"\\t \\t \\t -42papa58\"] : \033[31m Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: jchichep <jchichep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 13:14:44 by jchichep          #+#    #+#             */
-/*   Updated: 2014/11/07 18:21:54 by jchichep         ###   ########.fr       */
+/*   Updated: 2014/11/07 18:44:29 by jchichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@
 #define FT_PUTCHAR_FD	false
 #define FT_PUTNBR_FD	false
 #define FT_PUTENDL_FD	false
-#define FT_ATOI			false
+#define FT_ATOI			true
 
 #endif
