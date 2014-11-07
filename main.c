@@ -6,7 +6,7 @@
 /*   By: jchichep <jchichep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 13:07:21 by jchichep          #+#    #+#             */
-/*   Updated: 2014/11/07 18:43:39 by jchichep         ###   ########.fr       */
+/*   Updated: 2014/11/07 18:58:26 by jchichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,6 +192,10 @@ int main()
 			printf("ft_atoi [TEST = \"\\t \\t \\t -42papa58\"] : \033[32m Correcte\033[0m\n");
 		else
 			printf("ft_atoi [TEST = \"\\t \\t \\t -42papa58\"] : \033[31m Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+		if ((nb1 = atoi("\t \t \t +42papa58")) == (nb2 = ft_atoi("\t \t \t +42papa58")))
+			printf("ft_atoi [TEST = \"\\t \\t \\t +42papa58\"] : \033[32m Correcte\033[0m\n");
+		else
+			printf("ft_atoi [TEST = \"\\t \\t \\t +42papa58\"] : \033[31m Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
 	}
 }
 
