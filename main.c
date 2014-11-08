@@ -6,7 +6,7 @@
 /*   By: jchichep <jchichep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 13:07:21 by jchichep          #+#    #+#             */
-/*   Updated: 2014/11/08 14:02:07 by jchichep         ###   ########.fr       */
+/*   Updated: 2014/11/08 14:37:16 by jchichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include <stdio.h>
 #include <string.h>
 #include "test.h"
+
+char				*ft_strstr(const char *s1, const char *s2);
 
 int main()
 {
@@ -101,6 +103,38 @@ int main()
 		else
 			printf("ft_strlen.c [TEST = \"Hello World\"] :  \033[31m\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
 	}
+	if (FT_STRSTR == true)
+	{
+		char str1[] = "";
+		char str2[] = "";
+		char str3[] = "TEST";
+		char str4[] = "TE";
+		char *res1;
+		char *res2;
+
+		printf("\n\033[33m\t\tFT_STRSTR\033[0m\n");
+		if ((res1 = strstr(str1, str2)) == (res2 = ft_strstr(str1, str2)))
+			printf("ft_strstr.c [TEST = \"\", \"\"] :  \033[32m\t\t Correcte\033[0m\n");
+		else
+			printf("ft_strstr.c [TEST = \"\", \"\"] :  \033[31m\t\t Wrong\033[0m\nYour value %s, Good value %s\n", res2, res1);
+		if ((res1 = strstr(str3, str4)) == (res2 = ft_strstr(str3, str4)))
+			printf("ft_strstr.c [TEST = \"TEST\", \"TE\"] :  \033[32m\t Correcte\033[0m\n");
+		else
+			printf("ft_strstr.c [TEST = \"TEST\", \"TE\"] :  \033[31m\t Wrong\033[0m\nYour value %s, Good value %s\n", res2, res1);
+		if ((res1 = strstr(str4, str3)) == (res2 = ft_strstr(str4, str3)))
+			printf("ft_strstr.c [TEST = \"TE\", \"TEST\"] :  \033[32m\t Correcte\033[0m\n");
+		else
+			printf("ft_strstr.c [TEST = \"TE\", \"TEST\"] :  \033[31m\t Wrong\033[0m\nYour value %s, Good value %s\n", res2, res1);
+		if ((res1 = strstr(str1, str3)) == (res2 = ft_strstr(str1, str3)))
+			printf("ft_strstr.c [TEST = \"\", \"TEST\"] :  \033[32m\t Correcte\033[0m\n");
+		else
+			printf("ft_strstr.c [TEST = \"\", \"TEST\"] :  \033[31m\t Wrong\033[0m\nYour value %s, Good value %s\n", res2, res1);
+		if ((res1 = strstr(str3, str1)) == (res2 = ft_strstr(str3, str1)))
+			printf("ft_strstr.c [TEST = \"TEST\", \"\"] :  \033[32m\t Correcte\033[0m\n");
+		else
+			printf("ft_strstr.c [TEST = \"TEST\", \"\"] :  \033[31m\t Wrong\033[0m\nYour value %s, Good value %s\n", res2, res1);
+	}
+
 
 	printf("\n\033[31m--------------PARTIE SUPPLEMENTAIRE--------------\033[0m\n");
 
