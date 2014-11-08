@@ -6,7 +6,7 @@
 /*   By: jchichep <jchichep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 13:14:44 by jchichep          #+#    #+#             */
-/*   Updated: 2014/11/08 12:14:34 by jchichep         ###   ########.fr       */
+/*   Updated: 2014/11/08 13:47:55 by jchichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 /* METTEZ true ou false pour les fonctions que vous voulez*/
 
 #define FT_ATOI			true
+#define FT_STRCMP		true
 #define FT_STRLEN		true
 
 /* Partie Suplementaire */
@@ -32,6 +33,5 @@
 #define FT_PUTCHAR_FD	true
 #define FT_PUTNBR_FD	true
 #define FT_PUTENDL_FD	true
-
 
 #endif

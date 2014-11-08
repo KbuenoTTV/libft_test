@@ -62,7 +62,7 @@ if diff fichier fichier_test > toto
 then
 echo "ft_putnbr.c [TEST = 0] :\t\t\033[32m Correcte\033[0m"
 else
-echo "ft_putnbr.c [TEST = 0]:\t\t\033[31m Wrong\033[0m"
+echo "ft_putnbr.c [TEST = 0] :\t\t\033[31m Wrong\033[0m"
 fi
 rm fichier
 rm fichier_test
