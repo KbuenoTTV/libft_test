@@ -14,9 +14,9 @@ echo "TEST" > fichier_test
 
 if diff fichier fichier_test > toto
 then
-echo "ft_putstr.c :\t\t\t\t\033[32m Correcte\033[0m"
+echo "ft_putstr.c :\t\t\t\t\t\033[32m Correcte\033[0m"
 else
-echo "ft_putstr.c :\t\t\t\t\033[31m Wrong\033[0m"
+echo "ft_putstr.c :\t\t\t\t\t\033[31m Wrong\033[0m"
 fi
 rm fichier
 rm fichier_test
@@ -37,9 +37,9 @@ echo "C" > fichier_test
 
 if diff fichier fichier_test > toto
 then
-echo "ft_putchar.c :\t\t\t\t\033[32m Correcte\033[0m"
+echo "ft_putchar.c :\t\t\t\t\t\033[32m Correcte\033[0m"
 else
-echo "ft_putchar.c :\t\t\t\t\033[31m Wrong\033[0m"
+echo "ft_putchar.c :\t\t\t\t\t\033[31m Wrong\033[0m"
 fi
 rm fichier
 rm fichier_test
@@ -60,9 +60,9 @@ echo "0" > fichier_test
 
 if diff fichier fichier_test > toto
 then
-echo "ft_putnbr.c [TEST = 0] :\t\t\033[32m Correcte\033[0m"
+echo "ft_putnbr.c [TEST = 0] :\t\t\t\033[32m Correcte\033[0m"
 else
-echo "ft_putnbr.c [TEST = 0] :\t\t\033[31m Wrong\033[0m"
+echo "ft_putnbr.c [TEST = 0] :\t\t\t\033[31m Wrong\033[0m"
 fi
 rm fichier
 rm fichier_test
@@ -83,9 +83,9 @@ echo "-2147483648" > fichier_test
 
 if diff fichier fichier_test > toto
 then
-echo "ft_putnbr.c [TEST = -2147483648] :\t\033[32m Correcte\033[0m"
+echo "ft_putnbr.c [TEST = -2147483648] :\t\t\033[32m Correcte\033[0m"
 else
-echo "ft_putnbr.c [TEST = -2147483648] :\t\033[31m Wrong\033[0m"
+echo "ft_putnbr.c [TEST = -2147483648] :\t\t\033[31m Wrong\033[0m"
 fi
 rm fichier
 rm fichier_test
@@ -106,9 +106,9 @@ echo "2147483647" > fichier_test
 
 if diff fichier fichier_test > toto
 then
-echo "ft_putnbr.c [TEST = 2147483647] :\t\033[32m Correcte\033[0m"
+echo "ft_putnbr.c [TEST = 2147483647] :\t\t\033[32m Correcte\033[0m"
 else
-echo "ft_putnbr.c [TEST = 2147483647] :\t\033[31m Wrong\033[0m"
+echo "ft_putnbr.c [TEST = 2147483647] :\t\t\033[31m Wrong\033[0m"
 fi
 rm fichier
 rm fichier_test
@@ -129,9 +129,9 @@ echo "HELLO WORLD" > fichier_test
 
 if diff fichier fichier_test > toto
 then
-echo "ft_putendl.c :\t\t\t\t\033[32m Correcte\033[0m"
+echo "ft_putendl.c :\t\t\t\t\t\033[32m Correcte\033[0m"
 else
-echo "ft_putendl.c :\t\t\t\t\033[31m Wrong\033[0m"
+echo "ft_putendl.c :\t\t\t\t\t\033[31m Wrong\033[0m"
 fi
 rm fichier
 rm fichier_test
@@ -152,9 +152,9 @@ echo "TEST" > fichier_test
 
 if diff fichier fichier_test > toto
 then
-echo "ft_putstr_fd.c :\t\t\t\033[32m Correcte\033[0m"
+echo "ft_putstr_fd.c :\t\t\t\t\033[32m Correcte\033[0m"
 else
-echo "ft_putstr_fd.c :\t\t\t\033[31m Wrong\033[0m"
+echo "ft_putstr_fd.c :\t\t\t\t\033[31m Wrong\033[0m"
 fi
 rm -f fichier
 rm fichier_test
@@ -175,9 +175,9 @@ echo "C" > fichier_test
 
 if diff fichier fichier_test > toto
 then
-echo "ft_putchar_fd.c :\t\t\t\033[32m Correcte\033[0m"
+echo "ft_putchar_fd.c :\t\t\t\t\033[32m Correcte\033[0m"
 else
-echo "ft_putchar_fd.c :\t\t\t\033[31m Wrong\033[0m"
+echo "ft_putchar_fd.c :\t\t\t\t\033[31m Wrong\033[0m"
 fi
 rm -f fichier
 rm fichier_test
@@ -198,9 +198,9 @@ echo "0" > fichier_test
 
 if diff fichier fichier_test > toto
 then
-echo "ft_putnbr_fd.c [TEST = 0]: \t\t\033[32m Correcte\033[0m"
+echo "ft_putnbr_fd.c [TEST = 0]: \t\t\t\033[32m Correcte\033[0m"
 else
-echo "ft_putnbr_fd.c [TEST = 0]: \t\t\033[31m Wrong\033[0m"
+echo "ft_putnbr_fd.c [TEST = 0]: \t\t\t\033[31m Wrong\033[0m"
 fi
 rm -f fichier
 rm fichier_test
@@ -221,9 +221,9 @@ echo "-2147483648" > fichier_test
 
 if diff fichier fichier_test > toto
 then
-echo "ft_putnbr_fd.c [TEST = -2147483648] :\t\033[32m Correcte\033[0m"
+echo "ft_putnbr_fd.c [TEST = -2147483648] :\t\t\033[32m Correcte\033[0m"
 else
-echo "ft_putnbr_fd.c [TEST = -2147483648] :\t\033[31m Wrong\033[0m"
+echo "ft_putnbr_fd.c [TEST = -2147483648] :\t\t\033[31m Wrong\033[0m"
 fi
 rm -f fichier
 rm fichier_test
@@ -244,9 +244,9 @@ echo "2147483647" > fichier_test
 
 if diff fichier fichier_test > toto
 then
-echo "ft_putnbr_fd.c [TEST = 2147483647] :\t\033[32m Correcte\033[0m"
+echo "ft_putnbr_fd.c [TEST = 2147483647] :\t\t\033[32m Correcte\033[0m"
 else
-echo "ft_putnbr_fd.c [TEST = 2147483647] :\t\033[31m Wrong\033[0m"
+echo "ft_putnbr_fd.c [TEST = 2147483647] :\t\t\033[31m Wrong\033[0m"
 fi
 rm -f fichier
 rm fichier_test
@@ -267,9 +267,9 @@ echo "HELLO WORLD" > fichier_test
 
 if diff fichier fichier_test > toto
 then
-echo "ft_putendl_fd.c :\t\t\t\033[32m Correcte\033[0m"
+echo "ft_putendl_fd.c :\t\t\t\t\033[32m Correcte\033[0m"
 else
-echo "ft_putendl_fd.c :\t\t\t\033[31m Wrong\033[0m"
+echo "ft_putendl_fd.c :\t\t\t\t\033[31m Wrong\033[0m"
 fi
 rm fichier
 rm fichier_test
