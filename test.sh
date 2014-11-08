@@ -267,9 +267,9 @@ echo "HELLO WORLD" > fichier_test
 
 if diff fichier fichier_test > toto
 then
-echo "ft_putendl.c :\t\t\t\t\033[32m Correcte\033[0m"
+echo "ft_putendl_fd.c :\t\t\t\033[32m Correcte\033[0m"
 else
-echo "ft_putendl.c :\t\t\t\t\033[31m Wrong\033[0m"
+echo "ft_putendl_fd.c :\t\t\t\033[31m Wrong\033[0m"
 fi
 rm fichier
 rm fichier_test
