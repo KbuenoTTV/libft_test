@@ -6,7 +6,7 @@
 /*   By: jchichep <jchichep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 13:07:21 by jchichep          #+#    #+#             */
-/*   Updated: 2014/11/08 18:10:27 by jchichep         ###   ########.fr       */
+/*   Updated: 2014/11/08 18:44:37 by jchichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,24 +95,22 @@ int main()
 	{
 		int nb1;
 		int nb2;
-		int test = '1' + rand() % 8;
+		int i = -301;
+		int error = false;
 		printf("\n\033[33m\t\tFT_ISDIGIT\033[0m\n");
-		if ((nb1 = isdigit('0')) == (nb2 = ft_isdigit('0')))
-			printf("ft_isdigit.c [TEST = '0'] :  \033[32m\t\t\t Correcte\033[0m\n");
-		else
-			printf("ft_strlen.c [TEST = '0'] :  \033[31m\t\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
-		if ((nb1 = isdigit('9')) == (nb2 = ft_isdigit('9')))
-			printf("ft_isdigit.c [TEST = '9'] :  \033[32m\t\t\t Correcte\033[0m\n");
-		else
-			printf("ft_strlen.c [TEST = '9'] :  \033[31m\t\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
-		if ((nb1 = isdigit(test)) == (nb2 = ft_isdigit(test)))
-			printf("ft_isdigit.c [TEST = '%d'] :  \033[32m\t\t\t Correcte\033[0m\n", test - '0');
-		else
-			printf("ft_strlen.c [TEST = '%d'] :  \033[31m\t\t\t Wrong\033[0m\nYour value %d, Good value %d\n", test - '0', nb2 , nb1);
-		if ((nb1 = isdigit('a')) == (nb2 = ft_isdigit('a')))
-			printf("ft_isdigit.c [TEST = 'a'] :  \033[32m\t\t\t Correcte\033[0m\n");
-		else
-			printf("ft_strlen.c [TEST = 'a'] :  \033[31m\t\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+		printf("TESTED VALUE ARE BEETWEEN -300 & 300\n");
+
+		while (++i < 300)
+		{
+			if ((nb1 = isdigit(i)) != (nb2 = ft_isdigit(i)))
+			{
+				printf("ft_strlen.c [TEST = '%d'] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", i, nb2, nb1);
+				error = true;
+			}
+
+		}
+		if (error == false)
+			printf("ft_isdigit.c [TEST = -300 to 300] :  \033[32m\t\t Correcte\033[0m\n");
 		usleep(TIME);
 	}
 
@@ -173,8 +171,8 @@ int main()
 		}
 		bzero(str1, 20);
 		bzero(str2, 20);
-		strcpy(str1, str3);
-		strcpy(str2, str3);
+		strcpy(str1, str4);
+		strcpy(str2, str4);
 		if ((ret1 = strlcat(str1, str3, 4)) == (ret2 = ft_strlcat(str2, str3, 4)) && strcmp(str1, str2) == 0)
 			printf("ft_strlcat.c [TEST = \"TE\" \"TEST\", 4] :  \t\033[32m Correcte\033[0m\n");
 		else
@@ -187,13 +185,13 @@ int main()
 		}
 		bzero(str1, 20);
 		bzero(str2, 20);
-		strcpy(str1, str3);
-		strcpy(str2, str3);
-		if ((ret1 = strlcat(str1, str3, 2)) == (ret2 = ft_strlcat(str2, str3, 2)) && strcmp(str1, str2) == 0)
-			printf("ft_strlcat.c [TEST = \"TE\" \"TEST\", 2] :  \t\033[32m Correcte\033[0m\n");
+		strcpy(str1, str4);
+		strcpy(str2, str4);
+		if ((ret1 = strlcat(str1, str3, 1)) == (ret2 = ft_strlcat(str2, str3, 1)) && strcmp(str1, str2) == 0)
+			printf("ft_strlcat.c [TEST = \"TE\" \"TEST\", 1] :  \t\033[32m Correcte\033[0m\n");
 		else
 		{
-			printf("ft_strlcat.c [TEST = \"TE\", \"TEST\", 2] :  \t\033[31m Wrong\033[0m\n");
+			printf("ft_strlcat.c [TEST = \"TE\", \"TEST\", 1] :  \t\033[31m Wrong\033[0m\n");
 			if (strcmp(str1, str2) != 0)
 				printf("Your value %s, Good value %s\n", str2, str1);
 			if (ret1 != ret2)
@@ -201,8 +199,8 @@ int main()
 		}
 		bzero(str1, 20);
 		bzero(str2, 20);
-		strcpy(str1, str3);
-		strcpy(str2, str3);
+		strcpy(str1, str4);
+		strcpy(str2, str4);
 		if ((ret1 = strlcat(str1, str3, 9)) == (ret2 = ft_strlcat(str2, str3, 9)) && strcmp(str1, str2) == 0)
 			printf("ft_strlcat.c [TEST = \"TE\" \"TEST\", 9] :  \t\033[32m Correcte\033[0m\n");
 		else
