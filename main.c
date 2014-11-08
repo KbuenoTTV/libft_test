@@ -6,7 +6,7 @@
 /*   By: jchichep <jchichep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 13:07:21 by jchichep          #+#    #+#             */
-/*   Updated: 2014/11/08 18:44:37 by jchichep         ###   ########.fr       */
+/*   Updated: 2014/11/08 19:01:50 by jchichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,75 @@ int main()
 		usleep(TIME);
 	}
 
+	if (FT_ISALNUM == true)
+	{
+		int nb1;
+		int nb2;
+		int i = -301;
+		int error = false;
+		printf("\n\033[33m\t\tFT_ISALNUM\033[0m\n");
+		printf("TESTED VALUE ARE BEETWEEN -300 & 300\n");
+
+		while (++i < 300)
+		{
+			if ((nb1 = isalnum(i)) != (nb2 = ft_isalnum(i)))
+			{
+				printf("ft_isalnum.c [TEST = '%d'] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", i, nb2, nb1);
+				error = true;
+			}
+
+		}
+		if (error == false)
+			printf("ft_isalnum.c [TEST = -300 to 300] :  \033[32m\t\t Correcte\033[0m\n");
+		usleep(TIME);
+	}
+
+	if (FT_ISALPHA == true)
+	{
+		int nb1;
+		int nb2;
+		int i = -301;
+		int error = false;
+		printf("\n\033[33m\t\tFT_ISALPHA\033[0m\n");
+		printf("TESTED VALUE ARE BEETWEEN -300 & 300\n");
+
+		while (++i < 300)
+		{
+			if ((nb1 = isalpha(i)) != (nb2 = ft_isalpha(i)))
+			{
+				printf("ft_isalpha.c [TEST = '%d'] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", i, nb2, nb1);
+				error = true;
+			}
+
+		}
+		if (error == false)
+			printf("ft_isalpha.c [TEST = -300 to 300] :  \033[32m\t\t Correcte\033[0m\n");
+		usleep(TIME);
+	}
+
+	if (FT_ISASCII == true)
+	{
+		int nb1;
+		int nb2;
+		int i = -301;
+		int error = false;
+		printf("\n\033[33m\t\tFT_ISASCII\033[0m\n");
+		printf("TESTED VALUE ARE BEETWEEN -300 & 300\n");
+
+		while (++i < 300)
+		{
+			if ((nb1 = isascii(i)) != (nb2 = ft_isascii(i)))
+			{
+				printf("ft_isascii.c [TEST = '%d'] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", i, nb2, nb1);
+				error = true;
+			}
+
+		}
+		if (error == false)
+			printf("ft_isascii.c [TEST = -300 to 300] :  \033[32m\t\t Correcte\033[0m\n");
+		usleep(TIME);
+	}
+
 	if (FT_ISDIGIT == true)
 	{
 		int nb1;
@@ -104,7 +173,7 @@ int main()
 		{
 			if ((nb1 = isdigit(i)) != (nb2 = ft_isdigit(i)))
 			{
-				printf("ft_strlen.c [TEST = '%d'] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", i, nb2, nb1);
+				printf("ft_isdigit.c [TEST = '%d'] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", i, nb2, nb1);
 				error = true;
 			}
 
@@ -114,6 +183,28 @@ int main()
 		usleep(TIME);
 	}
 
+	if (FT_ISPRINT == true)
+	{
+		int nb1;
+		int nb2;
+		int i = -301;
+		int error = false;
+		printf("\n\033[33m\t\tFT_ISPRINT\033[0m\n");
+		printf("TESTED VALUE ARE BEETWEEN -300 & 300\n");
+
+		while (++i < 300)
+		{
+			if ((nb1 = isprint(i)) != (nb2 = ft_isprint(i)))
+			{
+				printf("ft_isprint.c [TEST = '%d'] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", i, nb2, nb1);
+				error = true;
+			}
+
+		}
+		if (error == false)
+			printf("ft_isprint.c [TEST = -300 to 300] :  \033[32m\t\t Correcte\033[0m\n");
+		usleep(TIME);
+	}
 
 	if (FT_STRCMP == true)
 	{
