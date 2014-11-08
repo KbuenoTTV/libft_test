@@ -6,7 +6,7 @@
 /*   By: jchichep <jchichep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 13:07:21 by jchichep          #+#    #+#             */
-/*   Updated: 2014/11/08 16:40:07 by jchichep         ###   ########.fr       */
+/*   Updated: 2014/11/08 16:53:23 by jchichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,10 +110,11 @@ int main()
 			printf("ft_strlcat.c [TEST = \"\\0\\0\\0\\0B\\0 \"TEST\", 4] :  \033[32m Correcte\033[0m\n");
 		else
 		{
+			printf("ft_strlcat.c [TEST = \"\\0\\0\\0\\0B\\0\", \"TEST\", 4] :  \033[31m Wrong\033[0m\n");
 			if (strcmp(str1, str2) != 0)
-				printf("ft_strlcat.c [TEST = \"\\0\\0\\0\\0B\\0\", \"TEST\", 4] :  \033[31m Wrong\033[0m\nYour value %s, Good value %s\n", str2, str1);
+				printf("Your value %s, Good value %s\n", str2, str1);
 			if (ret1 != ret2)
-				printf("ft_strlcat.c [TEST = \"\\0\\0\\0\\0B\\0\", \"TEST\", 4] :  \033[31m Wrong\033[0m\nYour return %d, Good return %d\n", ret2, ret1);
+				printf("Your return %d, Good return %d\n", ret2, ret1);
 		}
 		bzero(str1, 20);
 		bzero(str2, 20);
@@ -123,10 +124,11 @@ int main()
 			printf("ft_strlcat.c [TEST = \"TE\" \"TEST\", 4] :  \t\033[32m Correcte\033[0m\n");
 		else
 		{
+			printf("ft_strlcat.c [TEST = \"TE\", \"TEST\", 4] :  \t\033[31m Wrong\033[0m\n");
 			if (strcmp(str1, str2) != 0)
-				printf("ft_strlcat.c [TEST = \"TE\", \"TEST\", 4] :  \t\033[31m Wrong\033[0m\nYour value %s, Good value %s\n", str2, str1);
+				printf("Your value %s, Good value %s\n", str2, str1);
 			if (ret1 != ret2)
-				printf("ft_strlcat.c [TEST = \"TE\", \"TEST\", 4] :  \t\033[31m Wrong\033[0m\nYour return %d, Good return %d\n", ret2, ret1);
+				printf("Your return %d, Good return %d\n", ret2, ret1);
 		}
 		bzero(str1, 20);
 		bzero(str2, 20);
@@ -136,10 +138,11 @@ int main()
 			printf("ft_strlcat.c [TEST = \"TE\" \"TEST\", 2] :  \t\033[32m Correcte\033[0m\n");
 		else
 		{
+			printf("ft_strlcat.c [TEST = \"TE\", \"TEST\", 2] :  \t\033[31m Wrong\033[0m\n");
 			if (strcmp(str1, str2) != 0)
-				printf("ft_strlcat.c [TEST = \"TE\", \"TEST\", 2] :  \t\033[31m Wrong\033[0m\nYour value %s, Good value %s\n", str2, str1);
+				printf("Your value %s, Good value %s\n", str2, str1);
 			if (ret1 != ret2)
-				printf("ft_strlcat.c [TEST = \"TE\", \"TEST\", 2] :  \t\033[31m Wrong\033[0m\nYour return %d, Good return %d\n", ret2, ret1);
+				printf("Your return %d, Good return %d\n", ret2, ret1);
 		}
 		bzero(str1, 20);
 		bzero(str2, 20);
@@ -149,10 +152,11 @@ int main()
 			printf("ft_strlcat.c [TEST = \"TE\" \"TEST\", 9] :  \t\033[32m Correcte\033[0m\n");
 		else
 		{
+			printf("ft_strlcat.c [TEST = \"TE\", \"TEST\", 9] :  \t\033[31m Wrong\033[0m\n");
 			if (strcmp(str1, str2) != 0)
-				printf("ft_strlcat.c [TEST = \"TE\", \"TEST\", 9] :  \t\033[31m Wrong\033[0m\nYour value %s, Good value %s\n", str2, str1);
+				printf("Your value %s, Good value %s\n", str2, str1);
 			if (ret1 != ret2)
-				printf("ft_strlcat.c [TEST = \"TE\", \"TEST\", 9] :  \t\033[31m Wrong\033[0m\nYour return %d, Good return %d\n", ret2, ret1);
+				printf("Your return %d, Good return %d\n", ret2, ret1);
 		}
 
 	}
