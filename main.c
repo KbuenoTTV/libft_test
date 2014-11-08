@@ -6,7 +6,7 @@
 /*   By: jchichep <jchichep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 13:07:21 by jchichep          #+#    #+#             */
-/*   Updated: 2014/11/08 16:53:23 by jchichep         ###   ########.fr       */
+/*   Updated: 2014/11/08 17:09:51 by jchichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,31 @@ int main()
 			printf("ft_atoi [TEST = \"\\t \\t \\t +42papa58\"] : \t\033[32m Correcte\033[0m\n");
 		else
 			printf("ft_atoi [TEST = \"\\t \\t \\t +42papa58\"] : \t\033[31m Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+		if ((nb1 = atoi("\t \t \t -+42papa58")) == (nb2 = ft_atoi("\t\t \t\t \t\t -+42papa58")))
+			printf("ft_atoi [TEST = \"\\t \\t \\t -+42papa58\"] : \t\033[32m Correcte\033[0m\n");
+		else
+			printf("ft_atoi [TEST = \"\\t \\t \\t -+42papa58\"] : \t\033[31m Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+		if ((nb1 = atoi("\t \t \t \n+42papa58")) == (nb2 = ft_atoi("\t\t \t\t \t\t \n+42papa58")))
+			printf("ft_atoi [TEST = \"\\t \\t \\t \\n+42papa58\"] : \t\033[32m Correcte\033[0m\n");
+		else
+			printf("ft_atoi [TEST = \"\\t \\t \\t \\n+42papa58\"] : \t\033[31m Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+		if ((nb1 = atoi("\t \t \t \f+42papa58")) == (nb2 = ft_atoi("\t\t \t\t \t\t \f+42papa58")))
+			printf("ft_atoi [TEST = \"\\t \\t \\t \\f+42papa58\"] : \t\033[32m Correcte\033[0m\n");
+		else
+			printf("ft_atoi [TEST = \"\\t \\t \\t \\f+42papa58\"] : \t\033[31m Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+		if ((nb1 = atoi("\t \t \t \v+42papa58")) == (nb2 = ft_atoi("\t\t \t\t \t\t \v+42papa58")))
+			printf("ft_atoi [TEST = \"\\t \\t \\t \\v+42papa58\"] : \t\033[32m Correcte\033[0m\n");
+		else
+			printf("ft_atoi [TEST = \"\\t \\t \\t \\v+42papa58\"] : \t\033[31m Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+		if ((nb1 = atoi("\t \t \t \r+42papa58")) == (nb2 = ft_atoi("\t\t \t\t \t\t \r+42papa58")))
+			printf("ft_atoi [TEST = \"\\t \\t \\t \\r+42papa58\"] : \t\033[32m Correcte\033[0m\n");
+		else
+			printf("ft_atoi [TEST = \"\\t \\t \\t \\r+42papa58\"] : \t\033[31m Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+
+		if ((nb1 = atoi("\t \t \t \b+42papa58")) == (nb2 = ft_atoi("\t\t \t\t \t\t \b+42papa58")))
+			printf("ft_atoi [TEST = \"\\t \\t \\t \\b+42papa58\"] : \t\033[32m Correcte\033[0m\n");
+		else
+			printf("ft_atoi [TEST = \"\\t \\t \\t \\b+42papa58\"] : \t\033[31m Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
 	}
 	if (FT_STRCMP == true)
 	{
