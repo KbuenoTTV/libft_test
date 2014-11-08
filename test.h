@@ -6,7 +6,7 @@
 /*   By: jchichep <jchichep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 13:14:44 by jchichep          #+#    #+#             */
-/*   Updated: 2014/11/08 19:25:27 by jchichep         ###   ########.fr       */
+/*   Updated: 2014/11/08 19:47:12 by jchichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define TEST_H
 
 /* NE PAS MODIFIER*/
+
 #define TIME			250000
 #define true			1
 #define false			0
@@ -31,6 +32,8 @@
 #define FT_STRLCAT		true
 #define FT_STRLEN		true
 #define FT_STRSTR		true
+#define FT_TOLOWER		true
+#define FT_TOUPPER		true
 
 /* Partie Suplementaire */
 

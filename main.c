@@ -6,7 +6,7 @@
 /*   By: jchichep <jchichep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 13:07:21 by jchichep          #+#    #+#             */
-/*   Updated: 2014/11/08 19:36:46 by jchichep         ###   ########.fr       */
+/*   Updated: 2014/11/08 19:47:13 by jchichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -395,6 +395,53 @@ int main()
 			printf("ft_strstr.c [TEST = \"TEST\", \"\"] :  \033[31m\t\t Wrong\033[0m\nYour value %s, Good value %s\n", res2, res1);
 		usleep(TIME);
 	}
+
+	if (FT_TOLOWER == true)
+	{
+		int nb1;
+		int nb2;
+		int i = -301;
+		int error = false;
+		printf("\n\033[33m\t\tFT_TOLOWER\033[0m\n");
+		printf("TESTED VALUE ARE BEETWEEN -300 & 300\n");
+
+		while (++i < 300)
+		{
+			if ((nb1 = tolower(i)) != (nb2 = ft_tolower(i)))
+			{
+				printf("ft_tolower.c [TEST = '%d'] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", i, nb2, nb1);
+				error = true;
+			}
+
+		}
+		if (error == false)
+			printf("ft_tolower.c [TEST = -300 to 300] :  \033[32m\t\t Correcte\033[0m\n");
+		usleep(TIME);
+	}
+
+	if (FT_TOUPPER == true)
+	{
+		int nb1;
+		int nb2;
+		int i = -301;
+		int error = false;
+		printf("\n\033[33m\t\tFT_TOUPPER\033[0m\n");
+		printf("TESTED VALUE ARE BEETWEEN -300 & 300\n");
+
+		while (++i < 300)
+		{
+			if ((nb1 = toupper(i)) != (nb2 = ft_toupper(i)))
+			{
+				printf("ft_toupper.c [TEST = '%d'] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", i, nb2, nb1);
+				error = true;
+			}
+
+		}
+		if (error == false)
+			printf("ft_toupper.c [TEST = -300 to 300] :  \033[32m\t\t Correcte\033[0m\n");
+		usleep(TIME);
+	}
+
 
 
 	printf("\n\033[31m--------------PARTIE SUPPLEMENTAIRE--------------\033[0m\n");
