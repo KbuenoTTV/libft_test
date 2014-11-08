@@ -6,7 +6,7 @@
 /*   By: jchichep <jchichep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 13:07:21 by jchichep          #+#    #+#             */
-/*   Updated: 2014/11/08 17:09:51 by jchichep         ###   ########.fr       */
+/*   Updated: 2014/11/08 18:10:27 by jchichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <errno.h>
 #include <stdio.h>
 #include <string.h>
+#include <time.h>
 #include "test.h"
 
 char				*ft_strstr(const char *s1, const char *s2);
@@ -23,7 +24,7 @@ char				*ft_strstr(const char *s1, const char *s2);
 int main()
 {
 	printf("\n\033[31m---------------PARTIE OBLIGATOIRE----------------\033[0m\n");
-
+	srand(time(NULL));
 	if (FT_ATOI == true)
 	{
 		int nb1;
@@ -87,7 +88,35 @@ int main()
 			printf("ft_atoi [TEST = \"\\t \\t \\t \\b+42papa58\"] : \t\033[32m Correcte\033[0m\n");
 		else
 			printf("ft_atoi [TEST = \"\\t \\t \\t \\b+42papa58\"] : \t\033[31m Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+		usleep(TIME);
 	}
+
+	if (FT_ISDIGIT == true)
+	{
+		int nb1;
+		int nb2;
+		int test = '1' + rand() % 8;
+		printf("\n\033[33m\t\tFT_ISDIGIT\033[0m\n");
+		if ((nb1 = isdigit('0')) == (nb2 = ft_isdigit('0')))
+			printf("ft_isdigit.c [TEST = '0'] :  \033[32m\t\t\t Correcte\033[0m\n");
+		else
+			printf("ft_strlen.c [TEST = '0'] :  \033[31m\t\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+		if ((nb1 = isdigit('9')) == (nb2 = ft_isdigit('9')))
+			printf("ft_isdigit.c [TEST = '9'] :  \033[32m\t\t\t Correcte\033[0m\n");
+		else
+			printf("ft_strlen.c [TEST = '9'] :  \033[31m\t\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+		if ((nb1 = isdigit(test)) == (nb2 = ft_isdigit(test)))
+			printf("ft_isdigit.c [TEST = '%d'] :  \033[32m\t\t\t Correcte\033[0m\n", test - '0');
+		else
+			printf("ft_strlen.c [TEST = '%d'] :  \033[31m\t\t\t Wrong\033[0m\nYour value %d, Good value %d\n", test - '0', nb2 , nb1);
+		if ((nb1 = isdigit('a')) == (nb2 = ft_isdigit('a')))
+			printf("ft_isdigit.c [TEST = 'a'] :  \033[32m\t\t\t Correcte\033[0m\n");
+		else
+			printf("ft_strlen.c [TEST = 'a'] :  \033[31m\t\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+		usleep(TIME);
+	}
+
+
 	if (FT_STRCMP == true)
 	{
 		int nb1;
@@ -113,6 +142,7 @@ int main()
 			printf("ft_strcmp.c [TEST = \"abcd\", \"abc\"] :  \033[32m\t\t Correcte\033[0m\n");
 		else
 			printf("ft_strcmp.c [TEST = \"abcd\", \"abc\"] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+		usleep(TIME);
 	}
 
 	if (FT_STRLCAT == true)
@@ -183,7 +213,7 @@ int main()
 			if (ret1 != ret2)
 				printf("Your return %d, Good return %d\n", ret2, ret1);
 		}
-
+		usleep(TIME);
 	}
 
 	if (FT_STRLEN == true)
@@ -199,6 +229,7 @@ int main()
 			printf("ft_strlen.c [TEST = \"Hello World\"] :  \033[32m\t\t Correcte\033[0m\n");
 		else
 			printf("ft_strlen.c [TEST = \"Hello World\"] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+		usleep(TIME);
 	}
 	if (FT_STRSTR == true)
 	{
@@ -230,6 +261,7 @@ int main()
 			printf("ft_strstr.c [TEST = \"TEST\", \"\"] :  \033[32m\t\t Correcte\033[0m\n");
 		else
 			printf("ft_strstr.c [TEST = \"TEST\", \"\"] :  \033[31m\t\t Wrong\033[0m\nYour value %s, Good value %s\n", res2, res1);
+		usleep(TIME);
 	}
 
 
@@ -248,6 +280,7 @@ int main()
 		{
 			execl("test.sh", "test.sh", "1", NULL);
 		}
+		usleep(TIME);
 	}
 	if (FT_PUTCHAR == true)
 	{
@@ -262,6 +295,7 @@ int main()
 		{
 			execl("test.sh", "test.sh", "2", NULL);
 		}
+		usleep(TIME);
 	}
 	if (FT_PUTNBR == true)
 	{
@@ -294,6 +328,7 @@ int main()
 		{
 			execl("test.sh", "test.sh", "5", NULL);
 		}
+		usleep(TIME);
 	}
 	if (FT_PUTENDL == true)
 	{
@@ -308,6 +343,7 @@ int main()
 		{
 			execl("test.sh", "test.sh", "6", NULL);
 		}
+		usleep(TIME);
 	}
 	if (FT_PUTSTR_FD == true)
 	{
@@ -336,6 +372,7 @@ int main()
 		{
 			execl("test.sh", "test.sh", "8", NULL);
 		}
+		usleep(TIME);
 	}
 	if (FT_PUTNBR_FD == true)
 	{
@@ -368,6 +405,7 @@ int main()
 		{
 			execl("test.sh", "test.sh", "11", NULL);
 		}
+		usleep(TIME);
 	}
 	if (FT_PUTENDL_FD == true)
 	{
@@ -382,6 +420,7 @@ int main()
 		{
 			execl("test.sh", "test.sh", "12", NULL);
 		}
+		usleep(TIME);
 	}
 }
 
