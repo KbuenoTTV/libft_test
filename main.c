@@ -6,7 +6,7 @@
 /*   By: jchichep <jchichep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 13:07:21 by jchichep          #+#    #+#             */
-/*   Updated: 2014/11/08 19:47:13 by jchichep         ###   ########.fr       */
+/*   Updated: 2014/11/10 15:22:03 by jchichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,22 @@
 #include "test.h"
 
 char				*ft_strstr(const char *s1, const char *s2);
+
+void ft_putinprintable(char *str, int len)
+{
+	int	i;
+
+	i = -1;
+	while (++i < len)
+	{
+		if (str[i] < ' ')
+		{
+			printf("\\%d", str[i]);
+		}
+		else
+			printf("%c", str[i]);
+	}
+}
 
 int main()
 {
@@ -90,6 +106,39 @@ int main()
 			printf("ft_atoi [TEST = \"\\t \\t \\t \\b+42papa58\"] : \t\033[31m Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
 		usleep(TIME);
 	}
+	if (FT_BZERO == true)
+	{
+		printf("\n\033[33m\t\tFT_BZERO\033[0m\n");
+		char *str1;
+		char *str2;
+		int i = 0;
+		str1 = strdup("0123456789");
+		str2 = strdup("0123456789");
+		bzero (str1, 5);
+		ft_bzero (str2, 5);
+		if (memcmp(str1, str2, 11) == 0)
+			printf("ft_bzero.c [TEST = \"0123456789\"] :  \033[32m\t\t Correcte\033[0m\n");
+		else
+		{
+			printf("ft_bzero.c [TEST = \"0123456789\"] :  \033[31m\t\t Wrong\033[0m\nYour value ");
+			ft_putinprintable(str2, 10);
+			printf("Good value ");
+			ft_putinprintable(str1, 10);
+			printf("\n");
+		}
+		bzero (str1, 7);
+		ft_bzero (str2, 7);
+		if (memcmp(str1, str2, 11) == 0)
+			printf("ft_bzero.c [TEST = \"\\0\\0\\0\\0\\056789\"] :  \033[32m\t Correcte\033[0m\n");
+		else
+		{
+			printf("ft_bzero.c [TEST = \"\\0\\0\\0\\0\\056789\"] :  \033[31m\t Wrong\033[0m\nYour value ");
+			ft_putinprintable(str2, 10);
+			printf("Good value ");
+			ft_putinprintable(str1, 10);
+			printf("\n");
+		}
+	}
 
 	if (FT_ISALNUM == true)
 	{
@@ -113,7 +162,6 @@ int main()
 			printf("ft_isalnum.c [TEST = -300 to 300] :  \033[32m\t\t Correcte\033[0m\n");
 		usleep(TIME);
 	}
-
 	if (FT_ISALPHA == true)
 	{
 		int nb1;
@@ -136,7 +184,6 @@ int main()
 			printf("ft_isalpha.c [TEST = -300 to 300] :  \033[32m\t\t Correcte\033[0m\n");
 		usleep(TIME);
 	}
-
 	if (FT_ISASCII == true)
 	{
 		int nb1;
@@ -159,7 +206,6 @@ int main()
 			printf("ft_isascii.c [TEST = -300 to 300] :  \033[32m\t\t Correcte\033[0m\n");
 		usleep(TIME);
 	}
-
 	if (FT_ISDIGIT == true)
 	{
 		int nb1;
@@ -182,7 +228,6 @@ int main()
 			printf("ft_isdigit.c [TEST = -300 to 300] :  \033[32m\t\t Correcte\033[0m\n");
 		usleep(TIME);
 	}
-
 	if (FT_ISPRINT == true)
 	{
 		int nb1;
@@ -205,7 +250,6 @@ int main()
 			printf("ft_isprint.c [TEST = -300 to 300] :  \033[32m\t\t Correcte\033[0m\n");
 		usleep(TIME);
 	}
-
 	if (FT_STRCMP == true)
 	{
 		int nb1;
@@ -233,7 +277,6 @@ int main()
 			printf("ft_strcmp.c [TEST = \"abcd\", \"abc\"] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
 		usleep(TIME);
 	}
-
 	if (FT_STRLCAT == true)
 	{
 		char *str1;
@@ -304,7 +347,6 @@ int main()
 		}
 		usleep(TIME);
 	}
-
 	if (FT_STRLEN == true)
 	{
 		int nb1;
@@ -320,7 +362,6 @@ int main()
 			printf("ft_strlen.c [TEST = \"Hello World\"] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
 		usleep(TIME);
 	}
-
 	if (FT_STRNCMP == true)
 	{
 		int nb1;
@@ -361,8 +402,6 @@ int main()
 		usleep(TIME);
 
 	}
-
-
 	if (FT_STRSTR == true)
 	{
 		char str1[] = "";
@@ -395,7 +434,6 @@ int main()
 			printf("ft_strstr.c [TEST = \"TEST\", \"\"] :  \033[31m\t\t Wrong\033[0m\nYour value %s, Good value %s\n", res2, res1);
 		usleep(TIME);
 	}
-
 	if (FT_TOLOWER == true)
 	{
 		int nb1;
@@ -418,7 +456,6 @@ int main()
 			printf("ft_tolower.c [TEST = -300 to 300] :  \033[32m\t\t Correcte\033[0m\n");
 		usleep(TIME);
 	}
-
 	if (FT_TOUPPER == true)
 	{
 		int nb1;

@@ -6,7 +6,7 @@
 /*   By: jchichep <jchichep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 13:14:44 by jchichep          #+#    #+#             */
-/*   Updated: 2014/11/08 19:47:12 by jchichep         ###   ########.fr       */
+/*   Updated: 2014/11/10 15:13:42 by jchichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 /* METTEZ true ou false pour les fonctions que vous voulez*/
 
 #define FT_ATOI			true
+#define FT_BZERO		true
 #define FT_ISALNUM		true
 #define FT_ISALPHA		true
 #define FT_ISASCII		true
