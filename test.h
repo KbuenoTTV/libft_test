@@ -6,7 +6,7 @@
 /*   By: jchichep <jchichep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 13:14:44 by jchichep          #+#    #+#             */
-/*   Updated: 2014/11/10 15:13:42 by jchichep         ###   ########.fr       */
+/*   Updated: 2014/11/13 15:21:44 by jchichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 #define FT_ISASCII		true
 #define FT_ISDIGIT		true
 #define FT_ISPRINT		true
+#define FT_MEMCMP		true
 #define FT_STRCMP		true
 #define FT_STRNCMP		true
 #define FT_STRLCAT		true
@@ -38,6 +39,7 @@
 
 /* Partie Suplementaire */
 
+#define FT_ITOA			true
 #define FT_PUTSTR		true
 #define FT_PUTCHAR		true
 #define FT_PUTNBR		true

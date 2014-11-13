@@ -6,7 +6,7 @@
 /*   By: jchichep <jchichep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 13:07:21 by jchichep          #+#    #+#             */
-/*   Updated: 2014/11/10 15:22:03 by jchichep         ###   ########.fr       */
+/*   Updated: 2014/11/13 15:41:16 by jchichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include "test.h"
 
 char				*ft_strstr(const char *s1, const char *s2);
+char				*ft_itoa(int n);
 
 void ft_putinprintable(char *str, int len)
 {
@@ -250,6 +251,46 @@ int main()
 			printf("ft_isprint.c [TEST = -300 to 300] :  \033[32m\t\t Correcte\033[0m\n");
 		usleep(TIME);
 	}
+
+	if (FT_MEMCMP == true)
+	{
+		int nb1;
+		int nb2;
+		printf("\n\033[33m\t\tFT_MEMCMP\033[0m\n");
+		if ((nb1 = memcmp("", "", 1)) == (nb2 = ft_memcmp("", "", 1)))
+			printf("ft_memcmp.c [TEST = \"\", \"\", 1] :  \033[32m\t\t Correcte\033[0m\n");
+		else
+			printf("ft_memcmp.c [TEST = \"\", \"\", 1] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+		if ((nb1 = memcmp("abc", "cba", 3)) == (nb2 = ft_memcmp("abc", "cba", 3)))
+			printf("ft_memcmp.c [TEST = \"abc\", \"cba\", 3] :  \033[32m\t Correcte\033[0m\n");
+		else
+			printf("ft_memcmp.c [TEST = \"abc\", \"cba\"], 3 :  \033[31m\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+
+		if ((nb1 = memcmp("cba", "abc", 3)) == (nb2 = ft_memcmp("cba", "abc", 3)))
+			printf("ft_memcmp.c [TEST = \"cba\", \"abc\", 3] :  \033[32m\t Correcte\033[0m\n");
+		else
+			printf("ft_memcmp.c [TEST = \"cba\", \"abc\", 3] :  \033[31m\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+
+		if ((nb1 = memcmp("cba", "cba0", 4)) == (nb2 = ft_memcmp("cba", "cba0", 4)))
+			printf("ft_memcmp.c [TEST = \"cba\", \"cba0\", 4] :  \033[32m\t Correcte\033[0m\n");
+		else
+			printf("ft_memcmp.c [TEST = \"cba\", \"cba0\", 4] :  \033[31m\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+		if ((nb1 = memcmp("abcd", "abc", 4)) == (nb2 = ft_memcmp("abcd", "abc", 4)))
+			printf("ft_memcmp.c [TEST = \"abcd\", \"abc\", 4] :  \033[32m\t Correcte\033[0m\n");
+		else
+			printf("ft_memcmp.c [TEST = \"abcd\", \"abc\", 4] :  \033[31m\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+		if ((nb1 = memcmp("abcd", "abc", 3)) == (nb2 = ft_memcmp("abcd", "abc", 3)))
+			printf("ft_memcmp.c [TEST = \"abcd\", \"abc\", 3] :  \033[32m\t Correcte\033[0m\n");
+		else
+			printf("ft_memcmp.c [TEST = \"abcd\", \"abc\", 3] :  \033[31m\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+		if ((nb1 = memcmp("abc", "abcd", 3)) == (nb2 = ft_memcmp("abc", "abcd", 3)))
+			printf("ft_memcmp.c [TEST = \"abc\", \"abcd\", 3] :  \033[32m\t Correcte\033[0m\n");
+		else
+			printf("ft_memcmp.c [TEST = \"abc\", \"abcd\", 3] :  \033[31m\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+		usleep(TIME);
+
+	}
+
 	if (FT_STRCMP == true)
 	{
 		int nb1;
@@ -259,10 +300,10 @@ int main()
 			printf("ft_strcmp.c [TEST = \"\", \"\"] :  \033[32m\t\t\t Correcte\033[0m\n");
 		else
 			printf("ft_strcmp.c [TEST = \"\", \"\"] :  \033[31m\t\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
-		if ((nb1 = strcmp("abc", "cba")) == (nb2 = ft_strcmp("abc", "cba")))
+		if ((nb1 = strcmp("abc", "cba")) < 0)
 			printf("ft_strcmp.c [TEST = \"abc\", \"cba\"] :  \033[32m\t\t Correcte\033[0m\n");
 		else
-			printf("ft_strcmp.c [TEST = \"abc\", \"cba\"] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+			printf("ft_strcmp.c [TEST = \"abc\", \"cba\"] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value [A negative number]\n", nb1);
 		if ((nb1 = strcmp("cba", "abc")) == (nb2 = ft_strcmp("cba", "abc")))
 			printf("ft_strcmp.c [TEST = \"cba\", \"abc\"] :  \033[32m\t\t Correcte\033[0m\n");
 		else
@@ -483,6 +524,66 @@ int main()
 
 	printf("\n\033[31m--------------PARTIE SUPPLEMENTAIRE--------------\033[0m\n");
 
+	if (FT_ITOA == true)
+	{
+		char *str;
+		int nb2;
+		int nb1;
+		int i = 0;
+		int error = false;
+
+		srand(time(NULL));
+		printf("\n\033[33m\t\tFT_ITOA\033[0m\n");
+
+		if ((nb2 = atoi(str = ft_itoa(-2147483648))) == -2147483648)
+			printf("ft_itoa.c [TEST = -2147483648] :  \033[32m\t\t Correcte\033[0m\n");
+		else
+			printf("ft_itoa.c [TEST = -2147483648] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, -2147483648);
+		free(str);
+		if ((nb2 = atoi(str = ft_itoa(0))) == 0)
+			printf("ft_itoa.c [TEST = 0] :  \033[32m\t\t\t Correcte\033[0m\n");
+		else
+			printf("ft_itoa.c [TEST = 0] :  \033[31m\t\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, 0);
+		free(str);
+		if ((nb2 = atoi(str = ft_itoa(2147483647))) == 2147483647)
+			printf("ft_itoa.c [TEST = 2147483647] :  \033[32m\t\t Correcte\033[0m\n");
+		else
+			printf("ft_itoa.c [TEST = 2147483647] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, -2147483647);
+		free(str);
+
+				while (i < 1000000)
+		{
+			nb1 = -2000000000 + rand() % 1000000000;
+			if ((nb2 = atoi(str = ft_itoa(nb1))) != nb1)
+			{
+				printf("ft_itoa.c [TEST = negative values] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+				error = true;
+				free(str);
+				break;
+			}
+			++i;
+			free(str);
+		}
+		if (error == false)
+			printf("ft_itoa.c [TEST = negative values] :  \033[32m\t\t Correcte\033[0m\n");
+		i = 0;
+		error = false;
+				while (i < 1000000)
+		{
+			nb1 = 1000000000 + rand() % 1000000000;
+			if ((nb2 = atoi(str = ft_itoa(nb1))) != nb1)
+			{
+				printf("ft_itoa.c [TEST = positif values] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+				error = true;
+				free(str);
+				break;
+			}
+			++i;
+			free(str);
+		}
+		if (error == false)
+			printf("ft_itoa.c [TEST = positif values] :  \033[32m\t\t Correcte\033[0m\n");
+	}
 	if (FT_PUTSTR == true)
 	{
 		printf("\n\033[33m\t\tFT_PUTSTR\033[0m\n");
@@ -639,5 +740,3 @@ int main()
 		usleep(TIME);
 	}
 }
-
-
