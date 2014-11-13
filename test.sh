@@ -63,6 +63,9 @@ then
 echo "ft_putnbr.c [TEST = 0] :\t\t\t\033[32m Correcte\033[0m"
 else
 echo "ft_putnbr.c [TEST = 0] :\t\t\t\033[31m Wrong\033[0m"
+echo -n "Your result"
+cat fichier
+echo "Good result 0"
 fi
 rm fichier
 rm fichier_test
@@ -86,6 +89,9 @@ then
 echo "ft_putnbr.c [TEST = -2147483648] :\t\t\033[32m Correcte\033[0m"
 else
 echo "ft_putnbr.c [TEST = -2147483648] :\t\t\033[31m Wrong\033[0m"
+echo -n "Your result"
+cat fichier
+echo "Good result -2147483648"
 fi
 rm fichier
 rm fichier_test
@@ -109,6 +115,9 @@ then
 echo "ft_putnbr.c [TEST = 2147483647] :\t\t\033[32m Correcte\033[0m"
 else
 echo "ft_putnbr.c [TEST = 2147483647] :\t\t\033[31m Wrong\033[0m"
+echo -n "Your result"
+cat fichier
+echo "Good result 2147483647"
 fi
 rm fichier
 rm fichier_test

@@ -6,7 +6,7 @@
 /*   By: jchichep <jchichep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 13:07:21 by jchichep          #+#    #+#             */
-/*   Updated: 2014/11/13 15:41:16 by jchichep         ###   ########.fr       */
+/*   Updated: 2014/11/13 15:47:49 by jchichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -551,7 +551,7 @@ int main()
 			printf("ft_itoa.c [TEST = 2147483647] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, -2147483647);
 		free(str);
 
-				while (i < 1000000)
+		while (i < 1000000)
 		{
 			nb1 = -2000000000 + rand() % 1000000000;
 			if ((nb2 = atoi(str = ft_itoa(nb1))) != nb1)
@@ -568,7 +568,7 @@ int main()
 			printf("ft_itoa.c [TEST = negative values] :  \033[32m\t\t Correcte\033[0m\n");
 		i = 0;
 		error = false;
-				while (i < 1000000)
+		while (i < 1000000)
 		{
 			nb1 = 1000000000 + rand() % 1000000000;
 			if ((nb2 = atoi(str = ft_itoa(nb1))) != nb1)
