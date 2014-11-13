@@ -153,7 +153,7 @@ then
 gcc .main_putstr_fd.c libft.a -o putstr_fd
 
 ./putstr_fd
-
+chmod 777 fichier
 echo "TEST" > fichier_test
 
 if diff fichier fichier_test > toto
@@ -174,10 +174,10 @@ fi
 if [ $1 -eq 8 ]
 then
 
-gcc .main_putchar.c libft.a -o putchar_fd
+gcc .main_putchar_fd.c libft.a -o putchar_fd
 
-./putchar_fd > fichier
-
+./putchar_fd
+chmod 777 fichier
 echo "C" > fichier_test
 
 if diff fichier fichier_test > toto
@@ -201,7 +201,7 @@ then
 gcc .main_putnbr_fd.c libft.a -o putnbr_fd
 
 ./putnbr_fd 1
-
+chmod 777 fichier
 echo "0" > fichier_test
 
 if diff fichier fichier_test > toto
@@ -225,7 +225,7 @@ then
 gcc .main_putnbr_fd.c libft.a -o putnbr_fd
 
 ./putnbr_fd 2
-
+chmod 777 fichier
 echo "-2147483648" > fichier_test
 
 if diff fichier fichier_test > toto
@@ -249,7 +249,7 @@ then
 gcc .main_putnbr_fd.c libft.a -o putnbr_fd
 
 ./putnbr_fd 3
-
+chmod 777 fichier
 echo "2147483647" > fichier_test
 
 if diff fichier fichier_test > toto
@@ -273,7 +273,7 @@ then
 gcc .main_putendl_fd.c libft.a -o putendl_fd
 
 ./putendl_fd > fichier
-
+chmod 777 fichier
 echo "HELLO WORLD" > fichier_test
 
 if diff fichier fichier_test > toto
