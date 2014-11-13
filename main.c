@@ -6,7 +6,7 @@
 /*   By: jchichep <jchichep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 13:07:21 by jchichep          #+#    #+#             */
-/*   Updated: 2014/11/13 19:36:45 by jchichep         ###   ########.fr       */
+/*   Updated: 2014/11/13 19:52:54 by jchichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -257,36 +257,35 @@ int main()
 		int nb1;
 		int nb2;
 		printf("\n\033[33m\t\tFT_MEMCMP\033[0m\n");
-		if ((nb1 = memcmp("", "", 1)) == (nb2 = ft_memcmp("", "", 1)))
+		if ((nb1 = ft_memcmp("", "", 1)) == 0)
 			printf("ft_memcmp.c [TEST = \"\", \"\", 1] :  \033[32m\t\t Correcte\033[0m\n");
 		else
-			printf("ft_memcmp.c [TEST = \"\", \"\", 1] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
-		if ((nb1 = memcmp("abc", "cba", 3)) == (nb2 = ft_memcmp("abc", "cba", 3)))
+			printf("ft_memcmp.c [TEST = \"\", \"\", 1] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value 0\n", nb2);
+		if ((nb1 = ft_memcmp("abc", "cba", 3)) < 0)
 			printf("ft_memcmp.c [TEST = \"abc\", \"cba\", 3] :  \033[32m\t Correcte\033[0m\n");
 		else
-			printf("ft_memcmp.c [TEST = \"abc\", \"cba\"], 3 :  \033[31m\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
-
-		if ((nb1 = memcmp("cba", "abc", 3)) == (nb2 = ft_memcmp("cba", "abc", 3)))
+			printf("ft_memcmp.c [TEST = \"abc\", \"cba\"], 3 :  \033[31m\t Wrong\033[0m\nYour value %d, Good value [A negatif number]\n", nb2);
+		if ((nb1 = ft_memcmp("cba", "abc", 3)) > 0)
 			printf("ft_memcmp.c [TEST = \"cba\", \"abc\", 3] :  \033[32m\t Correcte\033[0m\n");
 		else
-			printf("ft_memcmp.c [TEST = \"cba\", \"abc\", 3] :  \033[31m\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
-
-		if ((nb1 = memcmp("cba", "cba0", 4)) == (nb2 = ft_memcmp("cba", "cba0", 4)))
+			printf("ft_memcmp.c [TEST = \"cba\", \"abc\", 3] :  \033[31m\t Wrong\033[0m\nYour value %d, Good value [A positif number]\n", nb2);
+		if ((nb1 = ft_memcmp("cba", "cba0", 4)) < 0)
 			printf("ft_memcmp.c [TEST = \"cba\", \"cba0\", 4] :  \033[32m\t Correcte\033[0m\n");
 		else
-			printf("ft_memcmp.c [TEST = \"cba\", \"cba0\", 4] :  \033[31m\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
-		if ((nb1 = memcmp("abcd", "abc", 4)) == (nb2 = ft_memcmp("abcd", "abc", 4)))
+			printf("ft_memcmp.c [TEST = \"cba\", \"cba0\", 4] :  \033[31m\t Wrong\033[0m\nYour value %d, Good value [A negatif number]\n", nb2);
+		if ((nb1 = ft_memcmp("abcd", "abc", 4)) > 0)
 			printf("ft_memcmp.c [TEST = \"abcd\", \"abc\", 4] :  \033[32m\t Correcte\033[0m\n");
 		else
-			printf("ft_memcmp.c [TEST = \"abcd\", \"abc\", 4] :  \033[31m\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
-		if ((nb1 = memcmp("abcd", "abc", 3)) == (nb2 = ft_memcmp("abcd", "abc", 3)))
+			printf("ft_memcmp.c [TEST = \"abcd\", \"abc\", 4] :  \033[31m\t Wrong\033[0m\nYour value %d, Good value [A positif number\n", nb2);
+
+		if ((nb1 = ft_memcmp("abcd", "abc", 3)) == 0)
 			printf("ft_memcmp.c [TEST = \"abcd\", \"abc\", 3] :  \033[32m\t Correcte\033[0m\n");
 		else
-			printf("ft_memcmp.c [TEST = \"abcd\", \"abc\", 3] :  \033[31m\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
-		if ((nb1 = memcmp("abc", "abcd", 3)) == (nb2 = ft_memcmp("abc", "abcd", 3)))
+			printf("ft_memcmp.c [TEST = \"abcd\", \"abc\", 3] :  \033[31m\t Wrong\033[0m\nYour value %d, Good value 0\n", nb2);
+		if ((nb1 = memcmp("abc", "abcd", 3)) == 0)
 			printf("ft_memcmp.c [TEST = \"abc\", \"abcd\", 3] :  \033[32m\t Correcte\033[0m\n");
 		else
-			printf("ft_memcmp.c [TEST = \"abc\", \"abcd\", 3] :  \033[31m\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+			printf("ft_memcmp.c [TEST = \"abc\", \"abcd\", 3] :  \033[31m\t Wrong\033[0m\nYour value %d, Good value 0\n", nb2);
 		usleep(TIME);
 
 	}
@@ -307,7 +306,7 @@ int main()
 		if ((nb1 = ft_strcmp("cba", "abc")) > 0)
 			printf("ft_strcmp.c [TEST = \"cba\", \"abc\"] :  \033[32m\t\t Correcte\033[0m\n");
 		else
-			printf("ft_strcmp.c [TEST = \"cba\", \"abc\"] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value [A positif number\n", nb1);
+			printf("ft_strcmp.c [TEST = \"cba\", \"abc\"] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value [A positif number]\n", nb1);
 		if ((nb1 = ft_strcmp("cba", "cba0")) < 0)
 			printf("ft_strcmp.c [TEST = \"cba\", \"cba0\"] :  \033[32m\t\t Correcte\033[0m\n");
 		else
@@ -408,38 +407,37 @@ int main()
 		int nb1;
 		int nb2;
 		printf("\n\033[33m\t\tFT_STRNCMP\033[0m\n");
-		if ((nb1 = strncmp("", "", 1)) == (nb2 = ft_strncmp("", "", 1)))
+		if ((nb1 = ft_strncmp("", "", 1)) == 0)
 			printf("ft_strncmp.c [TEST = \"\", \"\", 1] :  \033[32m\t\t Correcte\033[0m\n");
 		else
-			printf("ft_strncmp.c [TEST = \"\", \"\", 1] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+			printf("ft_strncmp.c [TEST = \"\", \"\", 1] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value 0\n", nb2);
 
-
-		if ((nb1 = strncmp("abc", "cba", 3)) == (nb2 = ft_strncmp("abc", "cba", 3)))
+		if ((nb1 = ft_strncmp("abc", "cba", 3)) < 0)
 			printf("ft_strncmp.c [TEST = \"abc\", \"cba\", 3] :  \033[32m\t Correcte\033[0m\n");
 		else
-			printf("ft_strncmp.c [TEST = \"abc\", \"cba\"], 3 :  \033[31m\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+			printf("ft_strncmp.c [TEST = \"abc\", \"cba\"], 3 :  \033[31m\t Wrong\033[0m\nYour value %d, Good value [A negatif number]\n", nb2);
 
-		if ((nb1 = strncmp("cba", "abc", 3)) == (nb2 = ft_strncmp("cba", "abc", 3)))
+		if ((nb1 = ft_strncmp("cba", "abc", 3)) > 0 )
 			printf("ft_strncmp.c [TEST = \"cba\", \"abc\", 3] :  \033[32m\t Correcte\033[0m\n");
 		else
-			printf("ft_strncmp.c [TEST = \"cba\", \"abc\", 3] :  \033[31m\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+			printf("ft_strncmp.c [TEST = \"cba\", \"abc\", 3] :  \033[31m\t Wrong\033[0m\nYour value %d, Good value [A positif number]\n", nb2);
 
-		if ((nb1 = strncmp("cba", "cba0", 4)) == (nb2 = ft_strncmp("cba", "cba0", 4)))
+		if ((nb1 = ft_strncmp("cba", "cba0", 4)) < 0)
 			printf("ft_strncmp.c [TEST = \"cba\", \"cba0\", 4] :  \033[32m\t Correcte\033[0m\n");
 		else
-			printf("ft_strncmp.c [TEST = \"cba\", \"cba0\", 4] :  \033[31m\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
-		if ((nb1 = strncmp("abcd", "abc", 4)) == (nb2 = ft_strncmp("abcd", "abc", 4)))
+			printf("ft_strncmp.c [TEST = \"cba\", \"cba0\", 4] :  \033[31m\t Wrong\033[0m\nYour value %d, Good value [A negatif number]\n", nb2);
+		if ((nb1 = ft_strncmp("abcd", "abc", 4)) > 0)
 			printf("ft_strncmp.c [TEST = \"abcd\", \"abc\", 4] :  \033[32m\t Correcte\033[0m\n");
 		else
-			printf("ft_strncmp.c [TEST = \"abcd\", \"abc\", 4] :  \033[31m\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
-		if ((nb1 = strncmp("abcd", "abc", 3)) == (nb2 = ft_strncmp("abcd", "abc", 3)))
+			printf("ft_strncmp.c [TEST = \"abcd\", \"abc\", 4] :  \033[31m\t Wrong\033[0m\nYour value %d, Good value [A positif number\n]", nb2);
+		if ((nb1 = ft_strncmp("abcd", "abc", 3)) == 0)
 			printf("ft_strncmp.c [TEST = \"abcd\", \"abc\", 3] :  \033[32m\t Correcte\033[0m\n");
 		else
-			printf("ft_strncmp.c [TEST = \"abcd\", \"abc\", 3] :  \033[31m\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
-		if ((nb1 = strncmp("abc", "abcd", 3)) == (nb2 = ft_strncmp("abc", "abcd", 3)))
+			printf("ft_strncmp.c [TEST = \"abcd\", \"abc\", 3] :  \033[31m\t Wrong\033[0m\nYour value %d, Good value 0\n", nb2);
+		if ((nb1 = ft_strncmp("abc", "abcd", 3)) == 0)
 			printf("ft_strncmp.c [TEST = \"abc\", \"abcd\", 3] :  \033[32m\t Correcte\033[0m\n");
 		else
-			printf("ft_strncmp.c [TEST = \"abc\", \"abcd\", 3] :  \033[31m\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+			printf("ft_strncmp.c [TEST = \"abc\", \"abcd\", 3] :  \033[31m\t Wrong\033[0m\nYour value %d, Good value 0\n", nb2);
 		usleep(TIME);
 
 	}
