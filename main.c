@@ -6,7 +6,7 @@
 /*   By: jchichep <jchichep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 13:07:21 by jchichep          #+#    #+#             */
-/*   Updated: 2014/11/16 19:25:14 by jchichep         ###   ########.fr       */
+/*   Updated: 2014/11/16 21:24:14 by jchichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -534,17 +534,17 @@ int main()
 		if ((nb2 = atoi(str = ft_itoa(-2147483648))) == -2147483648)
 			printf("ft_itoa.c [TEST = -2147483648] :  \033[32m\t\t Correcte\033[0m\n");
 		else
-			printf("ft_itoa.c [TEST = -2147483648] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, -2147483648);
+			printf("ft_itoa.c [TEST = -2147483648] :  \033[31m\t\t Wrong\033[0m\nYour value [%s], Good value [%d]\n", str, -2147483648);
 		free(str);
 		if ((nb2 = atoi(str = ft_itoa(0))) == 0)
 			printf("ft_itoa.c [TEST = 0] :  \033[32m\t\t\t Correcte\033[0m\n");
 		else
-			printf("ft_itoa.c [TEST = 0] :  \033[31m\t\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, 0);
+			printf("ft_itoa.c [TEST = 0] :  \033[31m\t\t\t Wrong\033[0m\nYour value [%s], Good value [%d]\n", str, 0);
 		free(str);
 		if ((nb2 = atoi(str = ft_itoa(2147483647))) == 2147483647)
 			printf("ft_itoa.c [TEST = 2147483647] :  \033[32m\t\t Correcte\033[0m\n");
 		else
-			printf("ft_itoa.c [TEST = 2147483647] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, -2147483647);
+			printf("ft_itoa.c [TEST = 2147483647] :  \033[31m\t\t Wrong\033[0m\nYour value [%s], Good value [%d]\n", str, -2147483647);
 		free(str);
 
 		while (i < 1000000)
@@ -552,7 +552,7 @@ int main()
 			nb1 = -2000000000 + rand() % 1000000000;
 			if ((nb2 = atoi(str = ft_itoa(nb1))) != nb1)
 			{
-				printf("ft_itoa.c [TEST = negative values] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+				printf("ft_itoa.c [TEST = negative values] :  \033[31m\t\t Wrong\033[0m\nYour value [%s], Good value [%d]\n", str, nb1);
 				error = true;
 				free(str);
 				break;
@@ -569,7 +569,7 @@ int main()
 			nb1 = 1000000000 + rand() % 1000000000;
 			if ((nb2 = atoi(str = ft_itoa(nb1))) != nb1)
 			{
-				printf("ft_itoa.c [TEST = positif values] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+				printf("ft_itoa.c [TEST = positif values] :  \033[31m\t\t Wrong\033[0m\nYour value [%s], Good value [%d]\n", str, nb1);
 				error = true;
 				free(str);
 				break;
