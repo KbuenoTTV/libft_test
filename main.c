@@ -6,7 +6,7 @@
 /*   By: jchichep <jchichep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 13:07:21 by jchichep          #+#    #+#             */
-/*   Updated: 2014/11/16 19:20:11 by jchichep         ###   ########.fr       */
+/*   Updated: 2014/11/16 19:21:08 by jchichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -576,10 +576,8 @@ int main()
 				free(str);
 				break;
 			}
-			printf("ft_itoa.c [TEST = positif values] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
 			++i;
 			free(str);
-			sleep(1);
 		}
 		if (error == false)
 			printf("ft_itoa.c [TEST = positif values] :  \033[32m\t\t Correcte\033[0m\n");
