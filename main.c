@@ -6,10 +6,11 @@
 /*   By: jchichep <jchichep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 13:07:21 by jchichep          #+#    #+#             */
-/*   Updated: 2014/11/16 21:24:14 by jchichep         ###   ########.fr       */
+/*   Updated: 2014/11/20 19:18:27 by jchichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <signal.h>
 #include <stdlib.h>
 #include <sys/wait.h>
 #include <unistd.h>
@@ -21,6 +22,8 @@
 
 char				*ft_strstr(const char *s1, const char *s2);
 char				*ft_itoa(int n);
+
+int seg = 0;
 
 void ft_putinprintable(char *str, int len)
 {
@@ -38,77 +41,131 @@ void ft_putinprintable(char *str, int len)
 	}
 }
 
-int main()
+void segfault(int nb)
 {
-	printf("\n\033[31m---------------PARTIE OBLIGATOIRE----------------\033[0m\n");
+	printf("\033[41;33mSegfault\033[0;31m\nEnd of test of this function\n");
+	start();
+}
+
+int start()
+{
+	char *str = NULL;
+	if (seg == 0)
+		printf("\n\033[31m---------------PARTIE OBLIGATOIRE----------------\033[0m\n");
 	srand(time(NULL));
-	if (FT_ATOI == true)
+
+	if (FT_ATOI == true && seg < 1)
 	{
+		/* INIT VARIABLE */
 		int nb1;
 		int nb2;
 
+		seg = 1;
 		printf("\n\033[33m\t\tFT_ATOI\033[0m\n");
-		if ((nb1 = atoi("0")) == (nb2 = ft_atoi("0")))
-			printf("ft_atoi [TEST = \"0\"] :  \033[32m\t\t\t Correcte\033[0m\n");
-		else
-			printf("ft_atoi [TEST = \"0\"] :  \033[31m\t\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
-		if ((nb1 = atoi("-2147483648")) == (nb2 = ft_atoi("-2147483648")))
-			printf("ft_atoi [TEST = \"-2147483648\"] :  \033[32m\t\t Correcte\033[0m\n");
-		else
-			printf("ft_atoi [TEST = \"-2147483648\"] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
-		if ((nb1 = atoi("2147483647")) == (nb2 = ft_atoi("2147483647")))
-			printf("ft_atoi [TEST = \"2147483647\"] :  \033[32m\t\t Correcte\033[0m\n");
-		else
-			printf("ft_atoi [TEST = \"2147483647\"] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
-		if ((nb1 = atoi("  42")) == (nb2 = ft_atoi("  42")))
-			printf("ft_atoi [TEST = \"  42\"] :  \033[32m\t\t\t Correcte\033[0m\n");
-		else
-			printf("ft_atoi [TEST = \"  42\"] :  \033[31m\t\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
-		if ((nb1 = atoi("\t \t \t -42")) == (nb2 = ft_atoi("\t \t \t -42")))
-			printf("ft_atoi [TEST = \"\\t \\t \\t -42\"] :  \033[32m\t\t Correcte\033[0m\n");
-		else
-			printf("ft_atoi [TEST = \"\\t \\t \\t -42\"] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
-		if ((nb1 = atoi("42papa58")) == (nb2 = ft_atoi("42papa58")))
-			printf("ft_atoi [TEST = \"42papa58\"] :  \033[32m\t\t\t Correcte\033[0m\n");
-		else
-			printf("ft_atoi [TEST = \"42papa58\"] :  \033[31m\t\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
-		if ((nb1 = atoi("\t \t \t -42papa58")) == (nb2 = ft_atoi("\t \t \t -42papa58")))
-			printf("ft_atoi [TEST = \"\\t \\t \\t -42papa58\"] : \t\033[32m Correcte\033[0m\n");
-		else
-			printf("ft_atoi [TEST = \"\\t \\t \\t -42papa58\"] : \t\033[31m Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
-		if ((nb1 = atoi("\t \t \t +42papa58")) == (nb2 = ft_atoi("\t\t \t\t \t\t +42papa58")))
-			printf("ft_atoi [TEST = \"\\t \\t \\t +42papa58\"] : \t\033[32m Correcte\033[0m\n");
-		else
-			printf("ft_atoi [TEST = \"\\t \\t \\t +42papa58\"] : \t\033[31m Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
-		if ((nb1 = atoi("\t \t \t -+42papa58")) == (nb2 = ft_atoi("\t\t \t\t \t\t -+42papa58")))
-			printf("ft_atoi [TEST = \"\\t \\t \\t -+42papa58\"] : \t\033[32m Correcte\033[0m\n");
-		else
-			printf("ft_atoi [TEST = \"\\t \\t \\t -+42papa58\"] : \t\033[31m Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
-		if ((nb1 = atoi("\t \t \t \n+42papa58")) == (nb2 = ft_atoi("\t\t \t\t \t\t \n+42papa58")))
-			printf("ft_atoi [TEST = \"\\t \\t \\t \\n+42papa58\"] : \t\033[32m Correcte\033[0m\n");
-		else
-			printf("ft_atoi [TEST = \"\\t \\t \\t \\n+42papa58\"] : \t\033[31m Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
-		if ((nb1 = atoi("\t \t \t \f+42papa58")) == (nb2 = ft_atoi("\t\t \t\t \t\t \f+42papa58")))
-			printf("ft_atoi [TEST = \"\\t \\t \\t \\f+42papa58\"] : \t\033[32m Correcte\033[0m\n");
-		else
-			printf("ft_atoi [TEST = \"\\t \\t \\t \\f+42papa58\"] : \t\033[31m Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
-		if ((nb1 = atoi("\t \t \t \v+42papa58")) == (nb2 = ft_atoi("\t\t \t\t \t\t \v+42papa58")))
-			printf("ft_atoi [TEST = \"\\t \\t \\t \\v+42papa58\"] : \t\033[32m Correcte\033[0m\n");
-		else
-			printf("ft_atoi [TEST = \"\\t \\t \\t \\v+42papa58\"] : \t\033[31m Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
-		if ((nb1 = atoi("\t \t \t \r+42papa58")) == (nb2 = ft_atoi("\t\t \t\t \t\t \r+42papa58")))
-			printf("ft_atoi [TEST = \"\\t \\t \\t \\r+42papa58\"] : \t\033[32m Correcte\033[0m\n");
-		else
-			printf("ft_atoi [TEST = \"\\t \\t \\t \\r+42papa58\"] : \t\033[31m Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
 
-		if ((nb1 = atoi("\t \t \t \b+42papa58")) == (nb2 = ft_atoi("\t\t \t\t \t\t \b+42papa58")))
-			printf("ft_atoi [TEST = \"\\t \\t \\t \\b+42papa58\"] : \t\033[32m Correcte\033[0m\n");
+		/* TEST 1 */
+		printf("ft_atoi [TEST = \"0\"] :  \t\t\t ");
+		if ((nb1 = atoi("0")) == (nb2 = ft_atoi("0")))
+			printf("\033[32mCorrecte\033[0m\n");
 		else
-			printf("ft_atoi [TEST = \"\\t \\t \\t \\b+42papa58\"] : \t\033[31m Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+			printf("\033[31mWrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+
+		/* TEST 2 */
+		printf("ft_atoi [TEST = \"-2147483648\"] :  \t\t ");
+
+		if ((nb1 = atoi("-2147483648")) == (nb2 = ft_atoi("-2147483648")))
+			printf("\033[32mCorrecte\033[0m\n");
+		else
+			printf("\033[31mWrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+
+		/* TEST 3 */
+		printf("ft_atoi [TEST = \"2147483647\"] :  \t\t ");
+		if ((nb1 = atoi("2147483647")) == (nb2 = ft_atoi("2147483647")))
+			printf("\033[32mCorrecte\033[0m\n");
+		else
+			printf("\033[31mWrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+
+		/* TEST 4 */
+		printf("ft_atoi [TEST = \"  42\"] :  \t\t\t ");
+		if ((nb1 = atoi("  42")) == (nb2 = ft_atoi("  42")))
+			printf("\033[32mCorrecte\033[0m\n");
+		else
+			printf("\033[31mWrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+
+		/* TEST 5 */
+		printf("ft_atoi [TEST = \"\\t \\t \\t -42\"] :  \t\t ");
+		if ((nb1 = atoi("\t \t \t -42")) == (nb2 = ft_atoi("\t \t \t -42")))
+			printf("\033[32mCorrecte\033[0m\n");
+		else
+			printf("\033[31mWrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+
+		/* TEST 6 */
+		printf("ft_atoi [TEST = \"42papa58\"] :  \t\t\t ");
+		if ((nb1 = atoi("42papa58")) == (nb2 = ft_atoi("42papa58")))
+			printf("\033[32mCorrecte\033[0m\n");
+		else
+			printf("\033[31mWrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+
+		/* TEST 7 */
+		printf("ft_atoi [TEST = \"\\t \\t \\t -42papa58\"] : \t ");
+		if ((nb1 = atoi("\t \t \t -42papa58")) == (nb2 = ft_atoi("\t \t \t -42papa58")))
+			printf("\033[32mCorrecte\033[0m\n");
+		else
+			printf("\033[31mWrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+
+		/* TEST 8 */
+		printf("ft_atoi [TEST = \"\\t \\t \\t +42papa58\"] : \t ");
+		if ((nb1 = atoi("\t \t \t +42papa58")) == (nb2 = ft_atoi("\t\t \t\t \t\t +42papa58")))
+			printf("\033[32mCorrecte\033[0m\n");
+		else
+			printf("\033[31mWrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+
+		/* TEST 9 */
+			printf("ft_atoi [TEST = \"\\t \\t \\t -+42papa58\"] : \t ");
+		if ((nb1 = atoi("\t \t \t -+42papa58")) == (nb2 = ft_atoi("\t\t \t\t \t\t -+42papa58")))
+			printf("\033[32mCorrecte\033[0m\n");
+		else
+			printf("\033[31mWrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+
+		/* TEST 10 */
+			printf("ft_atoi [TEST = \"\\t \\t \\t \\n+42papa58\"] : \t ");
+		if ((nb1 = atoi("\t \t \t \n+42papa58")) == (nb2 = ft_atoi("\t\t \t\t \t\t \n+42papa58")))
+			printf("\033[32mCorrecte\033[0m\n");
+		else
+			printf("\033[31mWrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+
+		/* TEST 11 */
+		printf("ft_atoi [TEST = \"\\t \\t \\t \\f+42papa58\"] : \t ");
+		if ((nb1 = atoi("\t \t \t \f+42papa58")) == (nb2 = ft_atoi("\t\t \t\t \t\t \f+42papa58")))
+			printf("\033[32mCorrecte\033[0m\n");
+		else
+			printf("\033[31mWrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+
+		/* TEST 12 */
+		printf("ft_atoi [TEST = \"\\t \\t \\t \\v+42papa58\"] : \t ");
+		if ((nb1 = atoi("\t \t \t \v+42papa58")) == (nb2 = ft_atoi("\t\t \t\t \t\t \v+42papa58")))
+			printf("\033[32mCorrecte\033[0m\n");
+		else
+			printf("\033[31mWrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+
+		/* TEST 13 */
+		printf("ft_atoi [TEST = \"\\t \\t \\t \\r+42papa58\"] : \t ");
+		if ((nb1 = atoi("\t \t \t \r+42papa58")) == (nb2 = ft_atoi("\t\t \t\t \t\t \r+42papa58")))
+			printf("\033[32mCorrecte\033[0m\n");
+		else
+			printf("\033[31mWrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
+
+		/* TEST 14 */
+			printf("ft_atoi [TEST = \"\\t \\t \\t \\b+42papa58\"] : \t ");
+		if ((nb1 = atoi("\t \t \t \b+42papa58")) == (nb2 = ft_atoi("\t\t \t\t \t\t \b+42papa58")))
+			printf("\033[32mCorrecte\033[0m\n");
+		else
+			printf("\033[31m Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
 		usleep(TIME);
 	}
-	if (FT_BZERO == true)
+	if (FT_BZERO == true && seg < 2)
 	{
+		seg = 2;
 		printf("\n\033[33m\t\tFT_BZERO\033[0m\n");
 		char *str1;
 		char *str2;
@@ -140,9 +197,9 @@ int main()
 			printf("\n");
 		}
 	}
-
-	if (FT_ISALNUM == true)
+	if (FT_ISALNUM == true && seg < 3)
 	{
+		seg = 3;
 		int nb1;
 		int nb2;
 		int i = -301;
@@ -163,8 +220,9 @@ int main()
 			printf("ft_isalnum.c [TEST = -300 to 300] :  \033[32m\t\t Correcte\033[0m\n");
 		usleep(TIME);
 	}
-	if (FT_ISALPHA == true)
+	if (FT_ISALPHA == true && seg < 4)
 	{
+		seg = 4;
 		int nb1;
 		int nb2;
 		int i = -301;
@@ -185,8 +243,9 @@ int main()
 			printf("ft_isalpha.c [TEST = -300 to 300] :  \033[32m\t\t Correcte\033[0m\n");
 		usleep(TIME);
 	}
-	if (FT_ISASCII == true)
+	if (FT_ISASCII == true && seg < 5)
 	{
+		seg = 5;
 		int nb1;
 		int nb2;
 		int i = -301;
@@ -207,8 +266,9 @@ int main()
 			printf("ft_isascii.c [TEST = -300 to 300] :  \033[32m\t\t Correcte\033[0m\n");
 		usleep(TIME);
 	}
-	if (FT_ISDIGIT == true)
+	if (FT_ISDIGIT == true && seg < 6)
 	{
+		seg = 6;
 		int nb1;
 		int nb2;
 		int i = -301;
@@ -229,8 +289,9 @@ int main()
 			printf("ft_isdigit.c [TEST = -300 to 300] :  \033[32m\t\t Correcte\033[0m\n");
 		usleep(TIME);
 	}
-	if (FT_ISPRINT == true)
+	if (FT_ISPRINT == true && seg < 7)
 	{
+		seg = 7;
 		int nb1;
 		int nb2;
 		int i = -301;
@@ -251,9 +312,9 @@ int main()
 			printf("ft_isprint.c [TEST = -300 to 300] :  \033[32m\t\t Correcte\033[0m\n");
 		usleep(TIME);
 	}
-
-	if (FT_MEMCMP == true)
+	if (FT_MEMCMP == true && seg < 10)
 	{
+		seg = 10;
 		int nb1;
 
 		printf("\n\033[33m\t\tFT_MEMCMP\033[0m\n");
@@ -289,9 +350,9 @@ int main()
 		usleep(TIME);
 
 	}
-
-	if (FT_STRCMP == true)
+	if (FT_STRCMP == true && seg < 16)
 	{
+		seg = 16;
 		int nb1;
 		int nb2;
 		printf("\n\033[33m\t\tFT_STRCMP\033[0m\n");
@@ -317,8 +378,9 @@ int main()
 			printf("ft_strcmp.c [TEST = \"abcd\", \"abc\"] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value [A positif number\n", nb1);
 		usleep(TIME);
 	}
-	if (FT_STRLCAT == true)
+	if (FT_STRLCAT == true && seg < 19)
 	{
+		seg = 19;
 		char *str1;
 		char *str2;
 		char str3[] = "TEST";
@@ -387,8 +449,9 @@ int main()
 		}
 		usleep(TIME);
 	}
-	if (FT_STRLEN == true)
+	if (FT_STRLEN == true && seg < 20)
 	{
+		seg = 20;
 		int nb1;
 		int nb2;
 		printf("\n\033[33m\t\tFT_STRLEN\033[0m\n");
@@ -402,8 +465,9 @@ int main()
 			printf("ft_strlen.c [TEST = \"Hello World\"] :  \033[31m\t\t Wrong\033[0m\nYour value %d, Good value %d\n", nb2, nb1);
 		usleep(TIME);
 	}
-	if (FT_STRNCMP == true)
+	if (FT_STRNCMP == true && seg < 22)
 	{
+		seg = 22;
 		int nb1;
 
 		printf("\n\033[33m\t\tFT_STRNCMP\033[0m\n");
@@ -439,8 +503,9 @@ int main()
 		usleep(TIME);
 
 	}
-	if (FT_STRSTR == true)
+	if (FT_STRSTR == true && seg < 26)
 	{
+		seg = 26;
 		char str1[] = "";
 		char str2[] = "";
 		char str3[] = "TEST";
@@ -471,8 +536,9 @@ int main()
 			printf("ft_strstr.c [TEST = \"TEST\", \"\"] :  \033[31m\t\t Wrong\033[0m\nYour value %s, Good value %s\n", res2, res1);
 		usleep(TIME);
 	}
-	if (FT_TOLOWER == true)
+	if (FT_TOLOWER == true && seg < 27)
 	{
+		seg = 27;
 		int nb1;
 		int nb2;
 		int i = -301;
@@ -493,8 +559,9 @@ int main()
 			printf("ft_tolower.c [TEST = -300 to 300] :  \033[32m\t\t Correcte\033[0m\n");
 		usleep(TIME);
 	}
-	if (FT_TOUPPER == true)
+	if (FT_TOUPPER == true && seg < 28)
 	{
+		seg = 28;
 		int nb1;
 		int nb2;
 		int i = -301;
@@ -516,12 +583,11 @@ int main()
 		usleep(TIME);
 	}
 
-
-
 	printf("\n\033[31m--------------PARTIE SUPPLEMENTAIRE--------------\033[0m\n");
 
-	if (FT_ITOA == true)
+	if (FT_ITOA == true && seg < 29)
 	{
+		seg = 29;
 		char *str;
 		int nb2;
 		int nb1;
@@ -580,23 +646,9 @@ int main()
 		if (error == false)
 			printf("ft_itoa.c [TEST = positif values] :  \033[32m\t\t Correcte\033[0m\n");
 	}
-	if (FT_PUTSTR == true)
+	if (FT_PUTCHAR == true && seg < 32)
 	{
-		printf("\n\033[33m\t\tFT_PUTSTR\033[0m\n");
-		pid_t   pid;
-		pid = fork ();
-		if (pid > 0)
-		{
-			wait(NULL);
-		}
-		else
-		{
-			execl("test.sh", "test.sh", "1", NULL);
-		}
-		usleep(TIME);
-	}
-	if (FT_PUTCHAR == true)
-	{
+		seg = 32;
 		printf("\n\033[33m\t\tFT_PUTCHAR\033[0m\n");
 		pid_t   pid;
 		pid = fork ();
@@ -610,8 +662,57 @@ int main()
 		}
 		usleep(TIME);
 	}
-	if (FT_PUTNBR == true)
+	if (FT_PUTCHAR_FD == true && seg < 33)
 	{
+		seg = 33;
+		printf("\n\033[33m\t\tFT_PUTCHAR_FD\033[0m\n");
+		pid_t   pid;
+		pid = fork ();
+		if (pid > 0)
+		{
+			wait(NULL);
+		}
+		else
+		{
+			execl("test.sh", "test.sh", "8", NULL);
+		}
+		usleep(TIME);
+	}
+	if (FT_PUTENDL == true && seg < 34)
+	{
+		seg = 34;
+		printf("\n\033[33m\t\tFT_PUTENDL\033[0m\n");
+		pid_t   pid;
+		pid = fork ();
+		if (pid > 0)
+		{
+			wait(NULL);
+		}
+		else
+		{
+			execl("test.sh", "test.sh", "6", NULL);
+		}
+		usleep(TIME);
+	}
+	if (FT_PUTENDL_FD == true && seg < 35)
+	{
+		seg = 35;
+		printf("\n\033[33m\t\tFT_PUTENDL_FD\033[0m\n");
+		pid_t   pid;
+		pid = fork ();
+		if (pid > 0)
+		{
+			wait(NULL);
+		}
+		else
+		{
+			execl("test.sh", "test.sh", "12", NULL);
+		}
+		usleep(TIME);
+	}
+	if (FT_PUTNBR == true && seg < 36)
+	{
+		seg = 36;
 		printf("\n\033[33m\t\tFT_PUTNBR\033[0m\n");
 		pid_t   pid;
 		pid = fork ();
@@ -643,52 +744,9 @@ int main()
 		}
 		usleep(TIME);
 	}
-	if (FT_PUTENDL == true)
+	if (FT_PUTNBR_FD == true && seg < 37)
 	{
-		printf("\n\033[33m\t\tFT_PUTENDL\033[0m\n");
-		pid_t   pid;
-		pid = fork ();
-		if (pid > 0)
-		{
-			wait(NULL);
-		}
-		else
-		{
-			execl("test.sh", "test.sh", "6", NULL);
-		}
-		usleep(TIME);
-	}
-	if (FT_PUTSTR_FD == true)
-	{
-		printf("\n\033[33m\t\tFT_PUTSTR_FD\033[0m\n");
-		pid_t   pid;
-		pid = fork ();
-		if (pid > 0)
-		{
-			wait(NULL);
-		}
-		else
-		{
-			execl("test.sh", "test.sh", "7", NULL);
-		}
-	}
-	if (FT_PUTCHAR_FD == true)
-	{
-		printf("\n\033[33m\t\tFT_PUTCHAR_FD\033[0m\n");
-		pid_t   pid;
-		pid = fork ();
-		if (pid > 0)
-		{
-			wait(NULL);
-		}
-		else
-		{
-			execl("test.sh", "test.sh", "8", NULL);
-		}
-		usleep(TIME);
-	}
-	if (FT_PUTNBR_FD == true)
-	{
+		seg = 37;
 		printf("\n\033[33m\t\tFT_PUTNBR_FD\033[0m\n");
 		pid_t   pid;
 		pid = fork ();
@@ -720,9 +778,10 @@ int main()
 		}
 		usleep(TIME);
 	}
-	if (FT_PUTENDL_FD == true)
+	if (FT_PUTSTR == true && seg < 38)
 	{
-		printf("\n\033[33m\t\tFT_PUTENDL_FD\033[0m\n");
+		seg = 38;
+		printf("\n\033[33m\t\tFT_PUTSTR\033[0m\n");
 		pid_t   pid;
 		pid = fork ();
 		if (pid > 0)
@@ -731,8 +790,30 @@ int main()
 		}
 		else
 		{
-			execl("test.sh", "test.sh", "12", NULL);
+			execl("test.sh", "test.sh", "1", NULL);
 		}
 		usleep(TIME);
 	}
+	if (FT_PUTSTR_FD == true && seg < 39)
+	{
+		seg = 39;
+		printf("\n\033[33m\t\tFT_PUTSTR_FD\033[0m\n");
+		pid_t   pid;
+		pid = fork ();
+		if (pid > 0)
+		{
+			wait(NULL);
+		}
+		else
+		{
+			execl("test.sh", "test.sh", "7", NULL);
+		}
+	}
+	exit(0);
+}
+
+int main()
+{
+	signal(11, segfault);
+	start();
 }
